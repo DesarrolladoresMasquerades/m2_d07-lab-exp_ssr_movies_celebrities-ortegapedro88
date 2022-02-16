@@ -1,4 +1,5 @@
 const Celebrity = require("../models/Celebrity.model");
+const Movie = require("../models/Movie.model");
 
 const router = require("express").Router();
 
@@ -14,8 +15,22 @@ router.route("/create", )
 
     Celebrity.create({name, ocupation, catchPhrase})
     .then(()=>{
-        res.redirect("/movies/create")
+        res.redirect("/celebrities")
     }).catch((err)=>{console.log(err)})
 })
+
+
+
+router.get("/", (req, res)=>{
+    Celebrity.find()
+    .populate({path: "movies",
+                model: "Movie"})
+    .then((celebrities)=>{
+        console.log(celebrities)
+        res.render("../views/celebrities/celebrities", {celebrities})
+    })
+})
+
+
 
 module.exports= router;

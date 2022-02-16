@@ -1,0 +1,23 @@
+<div>
+    <a href="/"><button>Home</button></a>
+
+
+<h1>..........................................................</h1>
+<a href="/movies/delete/{{this._id}}"><button>Delete movie</button></a>
+<a href="/movies/edit/{{this._id}}"><button>Edit movie</button></a>
+<br>
+<p>.............................................................</p>
+<h1>Title: {{this.title}}</h1>
+<h4>Genre: {{this.genre}}</h4>
+<p>Plot: {{this.plot}}</p>
+<h3>Cast :</h3>
+{{#each cast}}
+<ul>
+    <li>{{this.name}}</li>
+</ul>
+{{/each}}
+
+<h1>..........................................................</h1>
+
+
+</div>
